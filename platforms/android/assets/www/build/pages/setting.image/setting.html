@@ -1,0 +1,23 @@
+<ion-navbar *navbar>
+  <ion-title>Setting</ion-title>
+</ion-navbar>
+
+<ion-content class="card-background-page">
+
+  <ion-card>
+    <img src="{{employee.pic}}"/>
+    <div class="card-title">
+       {{employee.given}}
+    </div>
+    <div class="card-subtitle">
+        <a href="tel:{{employee.work}}" ion-item>
+                    <ion-icon name="call" item-left>{{employee.work}}</ion-icon>
+      </a>
+        <a href="mailto:{{employee.email}}" ion-item>
+                    <ion-icon name="mail" item-left>{{employee.email}}</ion-icon>
+                </a>
+
+    </div>
+  </ion-card>
+
+<ion-content class="card-background-page">

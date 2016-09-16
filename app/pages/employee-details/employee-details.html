@@ -1,0 +1,40 @@
+<ion-navbar *navbar>
+  <ion-title>Employee</ion-title>
+</ion-navbar>
+
+<ion-content class="employee">
+ <div *ngIf="employee" class="selection">
+    <ion-card>
+        <div id="qrcode_employee"></div>
+        <ion-card-content>
+                <img src="{{employee.pic}}"/>
+                <h2>{{employee.given}} {{employee.middle}} {{employee.family}}</h2>
+                <h3>{{employee.display}}</h3>
+                <h3>{{employee.org}} {{employee.dep}} {{employee.title}}</h3>
+        </ion-card-content>
+        <ion-list>
+                <a href="tel:{{employee.work}}" ion-item>
+                    <ion-icon name="call" item-left></ion-icon>
+                    <p>Call Office</p>
+                    <h2>{{employee.work}}</h2>
+                </a>
+                <a href="tel:{{employee.mobile}}" ion-item>
+                    <ion-icon name="call" item-left></ion-icon>
+                    <p>Call Mobile</p>
+                    <h2>{{employee.mobile}}</h2>
+                </a>
+                <a href="tel:{{employee.home}}" ion-item>
+                    <ion-icon name="text" item-left></ion-icon>
+                    <p>Call Home</p>
+                    <h2>{{employee.home}}</h2>
+                </a>
+                <a href="mailto:{{employee.email}}" ion-item>
+                    <ion-icon name="mail" item-left></ion-icon>
+                    <p>Email</p>
+                    <h2>{{employee.email}}</h2>
+                </a>
+        </ion-list>
+     </ion-card>
+ </div>
+
+</ion-content>

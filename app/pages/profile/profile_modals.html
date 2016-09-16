@@ -1,0 +1,68 @@
+<ion-toolbar>
+        <ion-segment [(ngModel)]="authType">
+          <ion-segment-button value="login">
+            Login
+          </ion-segment-button>
+          <ion-segment-button value="signup">
+            Signup
+          </ion-segment-button>
+        </ion-segment>
+</ion-toolbar>
+  <ion-content class="login" >
+
+      <div [ngSwitch]="authType">
+        <form *ngSwitchWhen="'login'" #loginCreds="ngForm" (ngSubmit)="login(loginCreds.value)">
+          <ion-item>
+            <ion-label>Username</ion-label>
+            <ion-input type="text" ngControl="username"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Password</ion-label>
+            <ion-input type="password" ngControl="password"></ion-input>
+          </ion-item>
+
+          <div padding>
+            <button block type="submit">Login</button>        
+          </div>
+
+        </form>
+
+        <form *ngSwitchWhen="'signup'" #signupCreds="ngForm">
+          <ion-item>
+            <ion-label>Username</ion-label>
+            <ion-input type="text" ngControl="username"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Password</ion-label>
+            <ion-input type="password" ngControl="password"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Mobile</ion-label>
+            <ion-input type="text" ngControl="mobile"></ion-input>
+          </ion-item>
+          <div padding>
+            <button block type="submit" (click)="getcode(signupCreds.value)">Getcode</button>
+          </div>
+
+         <ion-item>
+            <ion-label>Code</ion-label>
+            <ion-input type="text" ngControl="code"></ion-input>
+          </ion-item>
+
+          <div padding>
+            <button block type="submit" (click)="signup(signupCreds.value)">Signup</button>
+          </div>
+          
+
+        </form>
+      </div>
+
+      <div padding>
+        <p *ngIf="error" class="error">{{ error._body }}</p>  
+      </div>
+
+  </ion-content>
+

@@ -1,0 +1,20 @@
+<ion-navbar *navbar>
+    <ion-title>Employee List</ion-title>
+</ion-navbar>
+
+<ion-content>
+    <ion-searchbar [(ngModel)]="query" (input)="search($event, searchKey)"></ion-searchbar>
+    <ion-item (click)="scan()">
+          <ion-avatar item-left><ion-icon ios="ios-person-add" md="md-person-add" style="font-size:50px"></ion-icon></ion-avatar>
+          <h2>New Friends</h2>
+    </ion-item>
+    <ion-list>
+        <button ion-item *ngFor="#employee of employees" (click)="itemTapped($event,employee)">
+            <ion-thumbnail item-left>
+                <img src="{{employee.pic}}"/>
+            </ion-thumbnail>
+            <h2>{{employee.given}} {{employee.family}}</h2>
+            <p>{{employee.org}} {{employee.title}}</p>
+        </button>
+    </ion-list>
+</ion-content>

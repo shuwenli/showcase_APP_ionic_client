@@ -1,0 +1,27 @@
+<ion-navbar *navbar>
+  <ion-title>Employee</ion-title>
+</ion-navbar>
+
+<ion-content>
+ <div *ngIf="employee" class="selection">
+    <ion-card>
+         <ion-item>
+            <ion-avatar item-left image-large>
+                <img src="{{employee.pic}}"/>
+            </ion-avatar>
+             <ion-item-content>
+                 <h2>Nick:{{employee.display}}</h2>
+                 <h2>{{employee.given}} {{employee.middle}} {{employee.family}}</h2>
+                 <p>Company:{{employee.org}}</p>
+                 <p>Department:{{employee.dep}}</p>
+                 <p>Title:{{employee.title}}</p>
+                 <p>Work:{{employee.work}}</p>
+                 <p>Mobile:{{employee.mobile}}</p>
+                 <p>Home:{{employee.home}}</p>
+             </ion-item-content>
+         </ion-item>
+     </ion-card>
+ </div>
+
+<div id="qrcode"></div>
+</ion-content>
